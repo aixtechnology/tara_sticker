@@ -99,7 +99,7 @@ def run(weights='yolov5s.pt',  # model.pt path(s)
     t0 = time.time()
     for path, img, im0s, vid_cap in dataset:
 
-        txt_dis = "OK"
+        txt_dis = ""
         txt_dis_color = [0, 255, 0]
 
         img = torch.from_numpy(img).to(device)
@@ -150,11 +150,14 @@ def run(weights='yolov5s.pt',  # model.pt path(s)
                             label = None if hide_labels else (names[c] if hide_conf else f'{names[c]} {conf:.2f}')
                             plot_one_box(xyxy, im0, label=label, color=colors(c, True), line_thickness=line_thickness)
 
-                        if xyxy[1] < detect_area_c1[1] and c == 1:
-                            txt_dis = "NG"
-                            txt_dis_color = [0, 0, 255]
+                        if xyxy[1] < detect_area_c1[1]:
+                            if c == 1:
+                                txt_dis = "NG"
+                                txt_dis_color = [0, 0, 255]
+                            else:
+                                txt_dis = "OK"
+                                txt_dis_color = [0, 255, 0]
 
-            txt_x0 = 100
             cv2.putText(im0, txt_dis, (130, 120), 0, 4, txt_dis_color, thickness=5, lineType=cv2.LINE_AA)
             cv2.rectangle(im0, detect_area_c1, detect_area_c2, color=(128, 128, 128), thickness=3, lineType=cv2.LINE_AA)
 
