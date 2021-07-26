@@ -1,35 +1,5 @@
-# Repo-specific GitIgnore ----------------------------------------------------------------------------------------------
-*.jpg
-*.jpeg
-*.png
-*.bmp
-*.tif
-*.tiff
-*.heic
-*.JPG
-*.JPEG
-*.PNG
-*.BMP
-*.TIF
-*.TIFF
-*.HEIC
-*.mp4
-*.mov
-*.MOV
-*.avi
-*.data
-*.json
-*.cfg
-!cfg/yolov3*.cfg
-
 storage.googleapis.com
 runs/*
-data/*
-!data/hyps/*
-!data/images/zidane.jpg
-!data/images/bus.jpg
-!data/*.sh
-
 results*.txt
 
 # Datasets -------------------------------------------------------------------------------------------------------------
@@ -50,7 +20,6 @@ VOC/
 *.torchscript
 darknet53.conv.74
 yolov3-tiny.conv.15
-dataset
 # GitHub Python GitIgnore ----------------------------------------------------------------------------------------------
 # Byte-compiled / optimized / DLL files
 __pycache__/
