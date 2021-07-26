@@ -95,4 +95,3 @@ def run(weights='yolov5s.pt',
 
     print(f'Done. ({time.time() - t0:.3f}s)')
 
-run(weights='runs/train/exp11/weights/last.pt', source='videos/test.mp4')
